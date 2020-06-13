@@ -12,7 +12,7 @@ Issues with pitch faders fixed too following [*Pancake*'s recommendations][panca
 
 ## Compatibility
 
-Tested with [Mixxx][mixxx] `v2.2.3` on *macOS Catalina* `v10.15.4`
+Tested with [Mixxx][mixxx] `v2.2.3` and `2.3.0-beta` on *macOS Catalina* `v10.15.4`
 
 [mixxx-forum]: <https://www.mixxx.org/forums/viewtopic.php?f=7&t=13376>
 [mixxx]: <https://mixxx.org/>
