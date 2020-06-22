@@ -6,6 +6,7 @@ Based on the [original version][original] by *Kafuzke* [Mixxx forum][mixxx-forum
 
 - Issues with pitch faders fixed (following [*Pancake*'s recommendations][pancake])
 - **Level** knobs mapped as **Quick Effect Super Knobs** instead of _pregain_
+- The **Browse** know works when it's clicked too, i.e. it enters a selected playlist when focus on the left side of the library, and it cues a track when it's focused
 
 ## Installation
 
