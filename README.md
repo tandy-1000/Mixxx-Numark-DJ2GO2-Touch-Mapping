@@ -1,4 +1,4 @@
-# Numark's DJ2GO2 Touch mapping for Mixxx
+# Numark DJ2GO2 Touch mapping for Mixxx
 
 A full [Components.js][components] mapping based on [Shaftoe][shaftoe]'s version that was based on the [original version][original] by *Kafuzke* [Mixxx forum][mixxx-forum] user.
 
