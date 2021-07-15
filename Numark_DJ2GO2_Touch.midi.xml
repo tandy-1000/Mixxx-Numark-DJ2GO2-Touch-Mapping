@@ -2,7 +2,7 @@
 <MixxxMIDIPreset schemaVersion="1" mixxxVersion="2.3.0+">
   <!-- Schema version number to help compatibility, should the MIDI format change -->
   <info>
-    <name>Numark DJ2GO2 Touch</name>
+    <name>Numark DJ2GO2 Touch Mapping</name>
     <author>tandy1000</author>
     <description/>
     <wiki/>
@@ -68,7 +68,16 @@
       <!-- Create beat loop -->
       <control>
         <group>[Channel1]</group>
-        <key>beatloop_1_toggle</key>
+        <key>DJ2GO2Touch.leftDeck.beatloopButtons[0].input</key>
+        <status>0x84</status>
+        <midino>0x11</midino>
+        <options>
+          <script-binding/>
+        </options>
+      </control>
+      <control>
+        <group>[Channel1]</group>
+        <key>DJ2GO2Touch.leftDeck.beatloopButtons[0].input</key>
         <status>0x94</status>
         <midino>0x11</midino>
         <options>
@@ -77,7 +86,16 @@
       </control>
       <control>
         <group>[Channel1]</group>
-        <key>beatloop_2_toggle</key>
+        <key>DJ2GO2Touch.leftDeck.beatloopButtons[1].input</key>
+        <status>0x84</status>
+        <midino>0x12</midino>
+        <options>
+          <script-binding/>
+        </options>
+      </control>
+      <control>
+        <group>[Channel1]</group>
+        <key>DJ2GO2Touch.leftDeck.beatloopButtons[1].input</key>
         <status>0x94</status>
         <midino>0x12</midino>
         <options>
@@ -86,7 +104,16 @@
       </control>
       <control>
         <group>[Channel1]</group>
-        <key>beatloop_4_toggle</key>
+        <key>DJ2GO2Touch.leftDeck.beatloopButtons[2].input</key>
+        <status>0x84</status>
+        <midino>0x13</midino>
+        <options>
+          <script-binding/>
+        </options>
+      </control>
+      <control>
+        <group>[Channel1]</group>
+        <key>DJ2GO2Touch.leftDeck.beatloopButtons[2].input</key>
         <status>0x94</status>
         <midino>0x13</midino>
         <options>
@@ -95,7 +122,16 @@
       </control>
       <control>
         <group>[Channel1]</group>
-        <key>beatloop_8_toggle</key>
+        <key>DJ2GO2Touch.leftDeck.beatloopButtons[3].input</key>
+        <status>0x84</status>
+        <midino>0x14</midino>
+        <options>
+          <script-binding/>
+        </options>
+      </control>
+      <control>
+        <group>[Channel1]</group>
+        <key>DJ2GO2Touch.leftDeck.beatloopButtons[3].input</key>
         <status>0x94</status>
         <midino>0x14</midino>
         <options>
@@ -124,19 +160,18 @@
       <!-- Set hotcue 1 -->
       <control>
         <group>[Channel1]</group>
-        <key>DJ2GO2Touch.leftDeck.hotcueButtons[0]</key>
-        <status>0x94</status>
+        <key>DJ2GO2Touch.leftDeck.hotcueButtons[1].input</key>
+        <status>0x84</status>
         <midino>0x01</midino>
         <options>
           <script-binding/>
         </options>
       </control>
-      <!-- Clear hotcue 1 -->
       <control>
         <group>[Channel1]</group>
-        <!-- <key>DJ2GO2Touch.leftDeck.HotcueButton</key> -->
+        <key>DJ2GO2Touch.leftDeck.hotcueButtons[1].input</key>
         <status>0x94</status>
-        <midino>0x09</midino>
+        <midino>0x01</midino>
         <options>
           <script-binding/>
         </options>
@@ -144,19 +179,18 @@
       <!-- Set hotcue 2 -->
       <control>
         <group>[Channel1]</group>
-        <key>DJ2GO2Touch.leftDeck.hotcueButtons[1]</key>
-        <status>0x94</status>
+        <key>DJ2GO2Touch.leftDeck.hotcueButtons[2].input</key>
+        <status>0x84</status>
         <midino>0x02</midino>
         <options>
           <script-binding/>
         </options>
       </control>
-      <!-- Clear hotcue 2 -->
       <control>
         <group>[Channel1]</group>
-        <key>hotcue_2_clear</key>
+        <key>DJ2GO2Touch.leftDeck.hotcueButtons[2].input</key>
         <status>0x94</status>
-        <midino>0x0A</midino>
+        <midino>0x02</midino>
         <options>
           <script-binding/>
         </options>
@@ -164,19 +198,18 @@
       <!-- Set hotcue 3 -->
       <control>
         <group>[Channel1]</group>
-        <key>DJ2GO2Touch.leftDeck.hotcueButtons[2]</key>
-        <status>0x94</status>
+        <key>DJ2GO2Touch.leftDeck.hotcueButtons[3].input</key>
+        <status>0x84</status>
         <midino>0x03</midino>
         <options>
           <script-binding/>
         </options>
       </control>
-      <!-- Clear hotcue 3 -->
       <control>
         <group>[Channel1]</group>
-        <key>hotcue_3_clear</key>
+        <key>DJ2GO2Touch.leftDeck.hotcueButtons[3].input</key>
         <status>0x94</status>
-        <midino>0x0B</midino>
+        <midino>0x03</midino>
         <options>
           <script-binding/>
         </options>
@@ -184,19 +217,18 @@
       <!-- Set hotcue 4 -->
       <control>
         <group>[Channel1]</group>
-        <key>DJ2GO2Touch.leftDeck.hotcueButtons[3]</key>
-        <status>0x94</status>
+        <key>DJ2GO2Touch.leftDeck.hotcueButtons[4].input</key>
+        <status>0x84</status>
         <midino>0x04</midino>
         <options>
           <script-binding/>
         </options>
       </control>
-      <!-- Clear hotcue 4 -->
       <control>
         <group>[Channel1]</group>
-        <key>hotcue_4_clear</key>
+        <key>DJ2GO2Touch.leftDeck.hotcueButtons[4].input</key>
         <status>0x94</status>
-        <midino>0x0C</midino>
+        <midino>0x04</midino>
         <options>
           <script-binding/>
         </options>
@@ -369,7 +401,7 @@
       <!-- Create beat loop -->
       <control>
         <group>[Channel2]</group>
-        <key>beatloop_1_toggle</key>
+        <key>DJ2GO2Touch.rightDeck.beatloopButtons[0].input</key>
         <status>0x85</status>
         <midino>0x11</midino>
         <options>
@@ -378,7 +410,7 @@
       </control>
       <control>
         <group>[Channel2]</group>
-        <key>beatloop_1_toggle</key>
+        <key>DJ2GO2Touch.rightDeck.beatloopButtons[0].input</key>
         <status>0x95</status>
         <midino>0x11</midino>
         <options>
@@ -387,7 +419,7 @@
       </control>
       <control>
         <group>[Channel2]</group>
-        <key>beatloop_2_toggle</key>
+        <key>DJ2GO2Touch.rightDeck.beatloopButtons[1].input</key>
         <status>0x85</status>
         <midino>0x12</midino>
         <options>
@@ -396,7 +428,7 @@
       </control>
       <control>
         <group>[Channel2]</group>
-        <key>beatloop_2_toggle</key>
+        <key>DJ2GO2Touch.rightDeck.beatloopButtons[1].input</key>
         <status>0x95</status>
         <midino>0x12</midino>
         <options>
@@ -405,7 +437,7 @@
       </control>
       <control>
         <group>[Channel2]</group>
-        <key>beatloop_4_toggle</key>
+        <key>DJ2GO2Touch.rightDeck.beatloopButtons[2].input</key>
         <status>0x85</status>
         <midino>0x13</midino>
         <options>
@@ -414,7 +446,7 @@
       </control>
       <control>
         <group>[Channel2]</group>
-        <key>beatloop_4_toggle</key>
+        <key>DJ2GO2Touch.rightDeck.beatloopButtons[2].input</key>
         <status>0x95</status>
         <midino>0x13</midino>
         <options>
@@ -422,8 +454,8 @@
         </options>
       </control>
       <control>
-        <group>[Channel2]</group>
-        <key>beatloop_8_toggle</key>
+        <group>[Channel1]</group>
+        <key>DJ2GO2Touch.rightDeck.beatloopButtons[3].input</key>
         <status>0x85</status>
         <midino>0x14</midino>
         <options>
@@ -431,8 +463,8 @@
         </options>
       </control>
       <control>
-        <group>[Channel2]</group>
-        <key>beatloop_8_toggle</key>
+        <group>[Channel1]</group>
+        <key>DJ2GO2Touch.rightDeck.beatloopButtons[3].input</key>
         <status>0x95</status>
         <midino>0x14</midino>
         <options>
@@ -461,19 +493,18 @@
       <!-- Set hotcue 1 -->
       <control>
         <group>[Channel2]</group>
-        <!-- <key>DJ2GO2Touch.rightDeck.HotcueButton</key> -->
-        <status>0x95</status>
+        <key>DJ2GO2Touch.rightDeck.hotcueButtons[1].input</key>
+        <status>0x85</status>
         <midino>0x01</midino>
         <options>
           <script-binding/>
         </options>
       </control>
-      <!-- Clear hotcue 1 -->
       <control>
         <group>[Channel2]</group>
-        <key>hotcue_1_clear</key>
+        <key>DJ2GO2Touch.rightDeck.hotcueButtons[1].input</key>
         <status>0x95</status>
-        <midino>0x09</midino>
+        <midino>0x01</midino>
         <options>
           <script-binding/>
         </options>
@@ -481,19 +512,18 @@
       <!-- Set hotcue 2 -->
       <control>
         <group>[Channel2]</group>
-        <!-- <key>DJ2GO2Touch.rightDeck.HotcueButton</key> -->
-        <status>0x95</status>
+        <key>DJ2GO2Touch.rightDeck.hotcueButtons[2].input</key>
+        <status>0x85</status>
         <midino>0x02</midino>
         <options>
           <script-binding/>
         </options>
       </control>
-      <!-- Clear hotcue 2 -->
       <control>
         <group>[Channel2]</group>
-        <key>hotcue_2_clear</key>
+        <key>DJ2GO2Touch.rightDeck.hotcueButtons[2].input</key>
         <status>0x95</status>
-        <midino>0x0A</midino>
+        <midino>0x02</midino>
         <options>
           <script-binding/>
         </options>
@@ -501,19 +531,18 @@
       <!-- Set hotcue 3 -->
       <control>
         <group>[Channel2]</group>
-        <!-- <key>DJ2GO2Touch.rightDeck.HotcueButton</key> -->
-        <status>0x95</status>
+        <key>DJ2GO2Touch.rightDeck.hotcueButtons[3].input</key>
+        <status>0x85</status>
         <midino>0x03</midino>
         <options>
           <script-binding/>
         </options>
       </control>
-      <!-- Clear hotcue 3 -->
       <control>
         <group>[Channel2]</group>
-        <key>hotcue_3_clear</key>
+        <key>DJ2GO2Touch.rightDeck.hotcueButtons[3].input</key>
         <status>0x95</status>
-        <midino>0x0B</midino>
+        <midino>0x03</midino>
         <options>
           <script-binding/>
         </options>
@@ -521,19 +550,18 @@
       <!-- Set hotcue 4 -->
       <control>
         <group>[Channel2]</group>
-        <!-- <key>DJ2GO2Touch.rightDeck.HotcueButton</key> -->
-        <status>0x95</status>
+        <key>DJ2GO2Touch.rightDeck.hotcueButtons[4].input</key>
+        <status>0x85</status>
         <midino>0x04</midino>
         <options>
           <script-binding/>
         </options>
       </control>
-      <!-- Clear hotcue 4 -->
       <control>
         <group>[Channel2]</group>
-        <key>hotcue_4_clear</key>
+        <key>DJ2GO2Touch.rightDeck.hotcueButtons[4].input</key>
         <status>0x95</status>
-        <midino>0x0C</midino>
+        <midino>0x04</midino>
         <options>
           <script-binding/>
         </options>

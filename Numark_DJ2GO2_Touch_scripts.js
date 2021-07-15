@@ -126,7 +126,7 @@ DJ2GO2Touch.Deck = function (deckNumbers, midiChannel) {
     this.tempoFader = new components.Pot({
         group: '[Channel' + deckNumbers + ']',
         midi: [0xB0 + midiChannel, 0x09],
-        inKey: 'rate',
+        key: 'rate',
         inSetParameter: components.Pot.prototype.inSetParameter,
         connect: function() {
             engine.softTakeover(this.group, 'rate', true);
@@ -136,17 +136,21 @@ DJ2GO2Touch.Deck = function (deckNumbers, midiChannel) {
 
     this.hotcueButtons = [];
     for (var i = 1; i <= 4; i++) {
+        print(i);
         this.hotcueButtons[i] = new components.HotcueButton({
-            midi: [0x94, 0x01 + i],
+            group: '[Channel' + deckNumbers + ']',
+            midi: [0x94 + midiChannel, 0x01 + i],
             number: i,
         });
     }
     
     this.beatloopButtons = [];
-    for (var i = 1; i <= 4; i++) {
+    for (var i = 0; i < 4; i++) {
         this.beatloopButtons[i] = new components.Button({
-            midi: [0x94, 0x11 + i],
+            group: '[Channel' + deckNumbers + ']',
+            midi: [0x94 + midiChannel, 0x11 + i],
             number: i,
+            key: 'beatloop_' + Math.pow(2, i) + '_toggle'
         });
     }
 
