@@ -12,7 +12,7 @@
     <scriptfiles>
       <file filename="lodash.mixxx.js"/>
       <file filename="midi-components-0.0.js"/>
-      <file functionprefix="DJ2GO2Touch" filename="DJ2GO2_Touch_scripts.js"/>
+      <file functionprefix="DJ2GO2Touch" filename="Numark_DJ2GO2_Touch_scripts.js"/>
     </scriptfiles>
     <controls>
     <!-- Deck 1 -->
