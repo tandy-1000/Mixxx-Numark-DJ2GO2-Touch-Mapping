@@ -3,14 +3,16 @@ var DJ2GO2Touch = {};
 
 // Mixxx calls this function on startup or when the controller
 // is enabled in the Mixxx Preferences
-DJ2GO2Touch.init = function () {
+DJ2GO2Touch.init = function() {
     // create an instance of your custom Deck object for each side of your controller
     DJ2GO2Touch.leftDeck = new DJ2GO2Touch.Deck([1], 0);
     DJ2GO2Touch.rightDeck = new DJ2GO2Touch.Deck([2], 1);
 };
 
-DJ2GO2Touch.shutdown = function () {
+DJ2GO2Touch.shutdown = function() {
     // send whatever MIDI messages you need to turn off the lights of your controller
+    DJ2GO2Touch.leftDeck.shutdown();
+    DJ2GO2Touch.rightDeck.shutdown();
 };
 
 DJ2GO2Touch.browseEncoder = new components.Encoder({
@@ -21,11 +23,11 @@ DJ2GO2Touch.browseEncoder = new components.Encoder({
     onKnobEvent: function(rotateValue) {
         if (rotateValue !== 0) {
             if (this.previewSeekEnabled) {
-                var oldPos = engine.getValue('[PreviewDeck1]', 'playposition');
+                var oldPos = engine.getValue("[PreviewDeck1]", "playposition");
                 var newPos = Math.max(0, oldPos + (0.05 * rotateValue));
-                engine.setValue('[PreviewDeck1]', 'playposition', newPos);
+                engine.setValue("[PreviewDeck1]", "playposition", newPos);
             } else {
-                engine.setValue('[Playlist]', 'SelectTrackKnob', rotateValue);
+                engine.setValue("[Playlist]", "SelectTrackKnob", rotateValue);
             }
         }
     },
@@ -39,22 +41,22 @@ DJ2GO2Touch.browseEncoder = new components.Encoder({
             );
 
             this.previewStarted = false;
-            if (!engine.getValue('[PreviewDeck1]', 'play')) {
-                engine.setValue('[PreviewDeck1]', 'LoadSelectedTrackAndPlay', 1);
+            if (!engine.getValue("[PreviewDeck1]", "play")) {
+                engine.setValue("[PreviewDeck1]", "LoadSelectedTrackAndPlay", 1);
                 this.previewStarted = true;
             }
             // Track in PreviewDeck1 is playing, either the user
             // wants to stop the track or seek in it
             this.previewSeekEnabled = true;
-            print(engine.getValue('[PreviewDeck1]', 'play'));
+            print(engine.getValue("[PreviewDeck1]", "play"));
         } else {
             if (this.longPressTimer !== 0) {
                 engine.stopTimer(this.longPressTimer);
                 this.longPressTimer = 0;
             }
-            
-            if (!this.isLongPressed && !this.previewStarted && engine.getValue('[PreviewDeck1]', 'play')) {
-                script.triggerControl('[PreviewDeck1]', 'stop');
+
+            if (!this.isLongPressed && !this.previewStarted && engine.getValue("[PreviewDeck1]", "play")) {
+                script.triggerControl("[PreviewDeck1]", "stop");
             }
             this.previewSeekEnabled = false;
             this.previewStarted = false;
@@ -74,24 +76,24 @@ DJ2GO2Touch.browseEncoder = new components.Encoder({
 
 DJ2GO2Touch.masterGain = new components.Pot({
     midi: [0xBF, 0x0A],
-    group: '[Master]',
-    key: 'gain'
+    group: "[Master]",
+    key: "gain"
 });
 
 DJ2GO2Touch.cueGain = new components.Pot({
     midi: [0xBF, 0x0C],
-    group: '[Master]',
-    key: 'headGain'
+    group: "[Master]",
+    key: "headGain"
 });
 
 DJ2GO2Touch.crossfader = new components.Pot({
     midi: [0xBF, 0x08],
-    group: '[Master]',
-    key: 'crossfader'
+    group: "[Master]",
+    key: "crossfader"
 });
 
 // implement a constructor for a custom Deck object specific to your controller
-DJ2GO2Touch.Deck = function (deckNumbers, midiChannel) {
+DJ2GO2Touch.Deck = function(deckNumbers, midiChannel) {
     // Call the generic Deck constructor to setup the currentDeck and deckNumbers properties,
     // using Function.prototype.call to assign the custom Deck being constructed
     // to 'this' in the context of the generic components.Deck constructor
@@ -101,35 +103,35 @@ DJ2GO2Touch.Deck = function (deckNumbers, midiChannel) {
     this.playButton = new components.PlayButton([0x90 + midiChannel, 0x00]);
     this.cueButton = new components.CueButton([0x90 + midiChannel, 0x01]);
     this.syncButton = new components.SyncButton([0x90 + midiChannel, 0x02]);
-    
+
     this.pflButton = new components.Button({
         midi: [0x90 + midiChannel, 0x1B],
-        key: 'pfl'
+        key: "pfl"
     });
-    
+
     this.loadButton = new components.Button({
         midi: [0x9F, 0x02 + midiChannel],
-        key: 'LoadSelectedTrack',
+        key: "LoadSelectedTrack",
         input: function(channel, control, value, status, _group) {
             this.send(this.isPress(channel, control, value, status) ? this.on : this.off);
             components.Button.prototype.input.apply(this, arguments);
         }
     });
-    
+
     this.preGain = new components.Pot({
         midi: [0xB0 + midiChannel, 0x16],
-        group: '[QuickEffectRack1_' + this.currentDeck + ']',
-        key: 'super1'
+        group: "[QuickEffectRack1_" + this.currentDeck + "]",
+        key: "super1"
     });
-    
-    engine.setValue(this.currentDeck, 'rate_dir', -1);
+
+    engine.setValue(this.currentDeck, "rate_dir", -1);
     this.tempoFader = new components.Pot({
-        group: '[Channel' + deckNumbers + ']',
+        group: "[Channel" + deckNumbers + "]",
         midi: [0xB0 + midiChannel, 0x09],
-        key: 'rate',
+        key: "rate",
         inSetParameter: components.Pot.prototype.inSetParameter,
         connect: function() {
-            engine.softTakeover(this.group, 'rate', true);
+            engine.softTakeover(this.group, "rate", true);
             components.Pot.prototype.connect.apply(this, arguments);
         }
     });
@@ -139,32 +141,32 @@ DJ2GO2Touch.Deck = function (deckNumbers, midiChannel) {
     this.beatloopButtons = [];
     for (var i = 1; i <= 4; i++) {
         this.hotcueButtons[i] = new components.HotcueButton({
-            group: '[Channel' + deckNumbers + ']',
+            group: "[Channel" + deckNumbers + "]",
             midi: [0x94 + midiChannel, 0x01 + i],
             number: i,
         });
         this.samplerButtons[i] = new components.SamplerButton({
-            group: '[Sampler' + (i + (midiChannel * 4)) + ']',
+            group: "[Sampler" + (i + (midiChannel * 4)) + "]",
             midi: [0x94 + midiChannel, 0x31 + i],
             number: i + (midiChannel * 4),
         });
         this.beatloopButtons[i] = new components.Button({
-            group: '[Channel' + deckNumbers + ']',
+            group: "[Channel" + deckNumbers + "]",
             midi: [0x94 + midiChannel, 0x11 + i],
             number: i,
-            key: 'beatloop_' + Math.pow(2, i-1) + '_toggle'
+            key: "beatloop_" + Math.pow(2, i-1) + "_toggle"
         });
-    };
+    }
 
 
     this.loopIn = new components.Button({
         midi: [0x94 + midiChannel, 0x21],
-        key: 'loop_in',
+        key: "loop_in",
     });
 
     this.loopOut = new components.Button({
         midi: [0x94 + midiChannel, 0x22],
-        key: 'loop_out',
+        key: "loop_out",
     });
 
     this.LoopToggleButton = new components.LoopToggleButton([0x94 + midiChannel, 0x23]);
@@ -188,14 +190,14 @@ DJ2GO2Touch.Deck = function (deckNumbers, midiChannel) {
         if (engine.isScratching(deck)) {
             engine.scratchTick(deck, newValue); // Scratch!
         } else {
-            engine.setValue(this.currentDeck, 'jog', newValue); // Pitch bend
+            engine.setValue(this.currentDeck, "jog", newValue); // Pitch bend
         }
     };
 
     // Set the group properties of the above Components and connect their output callback functions
     // Without this, the group property for each Component would have to be specified to its
     // constructor.
-    this.reconnectComponents(function (c) {
+    this.reconnectComponents(function(c) {
         if (c.group === undefined) {
             // 'this' inside a function passed to reconnectComponents refers to the ComponentContainer
             // so 'this' refers to the custom Deck object being constructed
