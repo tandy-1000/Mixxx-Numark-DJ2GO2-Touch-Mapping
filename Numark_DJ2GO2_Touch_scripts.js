@@ -72,6 +72,24 @@ DJ2GO2Touch.browseEncoder = new components.Encoder({
     }
 });
 
+DJ2GO2Touch.samplerButtons = [];
+for (var i = 1; i <= 4; i++) {
+    print(i);
+    DJ2GO2Touch.samplerButtons[i] = new components.SamplerButton({
+        group: '[Sampler' + i + ']',
+        midi: [0x94, 0x31 + i],
+        number: i,
+    });
+}
+for (var i = 5; i <= 8; i++) {
+    print(i);
+    DJ2GO2Touch.samplerButtons[i] = new components.SamplerButton({
+        group: '[Sampler' + i + ']',
+        midi: [0x95, 0x31 + i],
+        number: i,
+    });
+}
+
 DJ2GO2Touch.masterGain = new components.Pot({
     midi: [0xBF, 0x0A],
     group: '[Master]',

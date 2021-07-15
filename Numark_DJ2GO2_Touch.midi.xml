@@ -768,8 +768,8 @@
       </control>
       <control>
         <group>[Sampler1]</group>
-        <key>cue_gotoandplay</key>
-        <status>0x94</status>
+        <key>DJ2GO2Touch.samplerButtons[1].input</key>
+        <status>0x84</status>
         <midino>0x31</midino>
         <options>
           <script-binding/>
@@ -777,8 +777,8 @@
       </control>
       <control>
         <group>[Sampler1]</group>
-        <key>cue_gotoandplay</key>
-        <status>0x84</status>
+        <key>DJ2GO2Touch.samplerButtons[1].input</key>
+        <status>0x94</status>
         <midino>0x31</midino>
         <options>
           <script-binding/>
@@ -786,7 +786,7 @@
       </control>
       <control>
         <group>[Sampler2]</group>
-        <key>cue_gotoandplay</key>
+        <key>DJ2GO2Touch.samplerButtons[2].input</key>
         <status>0x84</status>
         <midino>0x32</midino>
         <options>
@@ -795,7 +795,7 @@
       </control>
       <control>
         <group>[Sampler2]</group>
-        <key>cue_gotoandplay</key>
+        <key>DJ2GO2Touch.samplerButtons[2].input</key>
         <status>0x94</status>
         <midino>0x32</midino>
         <options>
@@ -804,7 +804,7 @@
       </control>
       <control>
         <group>[Sampler3]</group>
-        <key>cue_gotoandplay</key>
+        <key>DJ2GO2Touch.samplerButtons[3].input</key>
         <status>0x84</status>
         <midino>0x33</midino>
         <options>
@@ -813,7 +813,7 @@
       </control>
       <control>
         <group>[Sampler3]</group>
-        <key>cue_gotoandplay</key>
+        <key>DJ2GO2Touch.samplerButtons[3].input</key>
         <status>0x94</status>
         <midino>0x33</midino>
         <options>
@@ -822,7 +822,7 @@
       </control>
       <control>
         <group>[Sampler4]</group>
-        <key>cue_gotoandplay</key>
+        <key>DJ2GO2Touch.samplerButtons[4].input</key>
         <status>0x84</status>
         <midino>0x34</midino>
         <options>
@@ -831,7 +831,7 @@
       </control>
       <control>
         <group>[Sampler4]</group>
-        <key>cue_gotoandplay</key>
+        <key>DJ2GO2Touch.samplerButtons[4].input</key>
         <status>0x94</status>
         <midino>0x34</midino>
         <options>
@@ -840,7 +840,7 @@
       </control>
       <control>
         <group>[Sampler5]</group>
-        <key>cue_gotoandplay</key>
+        <key>DJ2GO2Touch.samplerButtons[5].input</key>
         <status>0x85</status>
         <midino>0x31</midino>
         <options>
@@ -849,7 +849,7 @@
       </control>
       <control>
         <group>[Sampler5]</group>
-        <key>cue_gotoandplay</key>
+        <key>DJ2GO2Touch.samplerButtons[5].input</key>
         <status>0x95</status>
         <midino>0x31</midino>
         <options>
@@ -858,7 +858,7 @@
       </control>
       <control>
         <group>[Sampler6]</group>
-        <key>cue_gotoandplay</key>
+        <key>DJ2GO2Touch.samplerButtons[6].input</key>
         <status>0x85</status>
         <midino>0x32</midino>
         <options>
@@ -867,7 +867,7 @@
       </control>
       <control>
         <group>[Sampler6]</group>
-        <key>cue_gotoandplay</key>
+        <key>DJ2GO2Touch.samplerButtons[6].input</key>
         <status>0x95</status>
         <midino>0x32</midino>
         <options>
@@ -876,7 +876,7 @@
       </control>
       <control>
         <group>[Sampler7]</group>
-        <key>cue_gotoandplay</key>
+        <key>DJ2GO2Touch.samplerButtons[7].input</key>
         <status>0x85</status>
         <midino>0x33</midino>
         <options>
@@ -885,7 +885,7 @@
       </control>
       <control>
         <group>[Sampler7]</group>
-        <key>cue_gotoandplay</key>
+        <key>DJ2GO2Touch.samplerButtons[7].input</key>
         <status>0x95</status>
         <midino>0x33</midino>
         <options>
@@ -894,7 +894,7 @@
       </control>
       <control>
         <group>[Sampler8]</group>
-        <key>cue_gotoandplay</key>
+        <key>DJ2GO2Touch.samplerButtons[8].input</key>
         <status>0x85</status>
         <midino>0x34</midino>
         <options>
@@ -903,7 +903,7 @@
       </control>
       <control>
         <group>[Sampler8]</group>
-        <key>cue_gotoandplay</key>
+        <key>DJ2GO2Touch.samplerButtons[8].input</key>
         <status>0x95</status>
         <midino>0x34</midino>
         <options>
