@@ -72,24 +72,6 @@ DJ2GO2Touch.browseEncoder = new components.Encoder({
     }
 });
 
-DJ2GO2Touch.samplerButtons = [];
-for (var i = 1; i <= 4; i++) {
-    print(i);
-    DJ2GO2Touch.samplerButtons[i] = new components.SamplerButton({
-        group: '[Sampler' + i + ']',
-        midi: [0x94, 0x31 + i],
-        number: i,
-    });
-}
-for (var i = 5; i <= 8; i++) {
-    print(i);
-    DJ2GO2Touch.samplerButtons[i] = new components.SamplerButton({
-        group: '[Sampler' + i + ']',
-        midi: [0x95, 0x31 + i],
-        number: i,
-    });
-}
-
 DJ2GO2Touch.masterGain = new components.Pot({
     midi: [0xBF, 0x0A],
     group: '[Master]',
@@ -153,24 +135,39 @@ DJ2GO2Touch.Deck = function (deckNumbers, midiChannel) {
     });
 
     this.hotcueButtons = [];
+    this.samplerButtons = [];
+    this.beatloopButtons = [];
     for (var i = 1; i <= 4; i++) {
-        print(i);
         this.hotcueButtons[i] = new components.HotcueButton({
             group: '[Channel' + deckNumbers + ']',
             midi: [0x94 + midiChannel, 0x01 + i],
             number: i,
         });
-    }
-    
-    this.beatloopButtons = [];
-    for (var i = 0; i < 4; i++) {
+        this.samplerButtons[i] = new components.SamplerButton({
+            group: '[Sampler' + (i + (midiChannel * 4)) + ']',
+            midi: [0x94 + midiChannel, 0x31 + i],
+            number: i + (midiChannel * 4),
+        });
         this.beatloopButtons[i] = new components.Button({
             group: '[Channel' + deckNumbers + ']',
             midi: [0x94 + midiChannel, 0x11 + i],
             number: i,
-            key: 'beatloop_' + Math.pow(2, i) + '_toggle'
+            key: 'beatloop_' + Math.pow(2, i-1) + '_toggle'
         });
-    }
+    };
+
+
+    this.loopIn = new components.Button({
+        midi: [0x94 + midiChannel, 0x21],
+        key: 'loop_in',
+    });
+
+    this.loopOut = new components.Button({
+        midi: [0x94 + midiChannel, 0x22],
+        key: 'loop_out',
+    });
+
+    this.LoopToggleButton = new components.LoopToggleButton([0x94 + midiChannel, 0x23]);
 
     this.wheelTouch = function(channel, control, value, _status, _group) {
         if ((_status & 0xF0) === 0x90) {
@@ -193,18 +190,6 @@ DJ2GO2Touch.Deck = function (deckNumbers, midiChannel) {
         } else {
             engine.setValue(this.currentDeck, 'jog', newValue); // Pitch bend
         }
-
-        this.LoopToggleButton = new components.LoopToggleButton([0x94 + midiChannel, 0x23]);
-
-        this.loopIn = new components.Button({
-            midi: [0x94 + midiChannel, 0x21],
-            key: 'loop_in',
-        });
-
-        this.loopOut = new components.Button({
-            midi: [0x94 + midiChannel, 0x22],
-            key: 'loop_out',
-        });
     };
 
     // Set the group properties of the above Components and connect their output callback functions
