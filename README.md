@@ -1,4 +1,4 @@
-# This has since been merged into Mixxx
+# This has since been merged into Mixxx and has thus been archived.
 
 ## Numark DJ2GO2 Touch mapping for Mixxx
 
